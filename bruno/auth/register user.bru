@@ -1,0 +1,18 @@
+meta {
+  name: register user
+  type: http
+  seq: 1
+}
+
+post {
+  url: localhost/register
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "login": "tim",
+    "password": "1111"
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: login user
+  type: http
+  seq: 2
+}
+
+post {
+  url: localhost/login
+  body: formUrlEncoded
+  auth: none
+}
+
+body:json {
+  {
+    "login": "tim",
+    "password": "1111"
+  }
+}
+
+body:form-urlencoded {
+  username: tim
+  password: 1111
+}
