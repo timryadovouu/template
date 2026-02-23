@@ -1,7 +1,7 @@
 from fastapi import FastAPI  # type: ignore
 import os
 
-from routers import auth, posts, users
+from backend.routers import auth, posts, users
 
 app = FastAPI()
 
