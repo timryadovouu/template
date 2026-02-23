@@ -34,6 +34,8 @@ jobs:
       - name: Run tests
         env:
           TESTING: "true"
+          SECRET_KEY: "test-secret-key"
+          ACCESS_TOKEN_TTL: "30"
         run: |
           cd backend
           PYTHONPATH=$PYTHONPATH:$(pwd) poetry run pytest ../tests/
