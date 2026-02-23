@@ -4,12 +4,12 @@ from typing import Optional, Literal, Annotated
 from datetime import datetime
 from sqlalchemy import or_, and_  # type: ignore
 
-from auth.auth import get_current_user
-from db.database import get_db
-from auth.utils import get_password_hash
-from db.models import User, Post
-from db.schemas import PostsResponse
-from db.schemas import UserResponse, UsersResponse, UserUpdate, UserResponseLight
+from backend.auth.auth import get_current_user
+from backend.db.database import get_db
+from backend.auth.utils import get_password_hash
+from backend.db.models import User, Post
+from backend.db.schemas import PostsResponse
+from backend.db.schemas import UserResponse, UsersResponse, UserUpdate, UserResponseLight
 
 
 router = APIRouter(tags=["Users"])
