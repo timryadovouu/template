@@ -128,6 +128,7 @@ def get_post(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Post not found")
     return post_obj
 
+
 @router.patch("/api/posts/{post_id}", response_model=PostResponse)
 def update_post(
     post_id: int,
@@ -150,6 +151,7 @@ def update_post(
     db.refresh(post_obj)
     return post_obj
 
+
 @router.delete("/api/posts/{post_id}", status_code=status.HTTP_200_OK)
 def delete_post(
     post_id: int, 
@@ -168,6 +170,7 @@ def delete_post(
     db.delete(post_obj)
     db.commit()
     return {"message": f"Post '{post_title}' deleted successfully", "id": post_id}
+
 
 @router.post("/api/posts/{post_id}/like", status_code=status.HTTP_200_OK)
 def like_post(
@@ -193,6 +196,7 @@ def like_post(
         "post_id": post_id,
         "likes_count": likes
     }
+
 
 @router.post("/api/posts/{post_id}/unlike", status_code=status.HTTP_200_OK)
 def unlike_post(

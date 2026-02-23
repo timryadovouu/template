@@ -18,15 +18,15 @@ router = APIRouter(tags=["Authentication"])
 ADMIN_REGISTRATION_KEY = os.getenv("ADMIN_REGISTRATION_KEY")
 REST_KEY = os.getenv("REST_KEY")
 
+
 @router.post("/register", response_model=Token)
 async def register(
-    user: UserCreate, 
+    user: UserCreate,
     db: Session = Depends(get_db)
 ):
     db_user = db.query(User).filter(User.login == user.login).first()
     if db_user:
-        raise HTTPException(status_code=400, detail="Login already registered")
-        
+        raise HTTPException(status_code=400, detail="Login already registered")     
     hashed_password = get_password_hash(user.password)
     new_user = User(
         login=user.login,   

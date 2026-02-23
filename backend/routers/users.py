@@ -14,6 +14,7 @@ from db.schemas import UserResponse, UsersResponse, UserUpdate, UserResponseLigh
 
 router = APIRouter(tags=["Users"])
 
+
 @router.get("/api/users/{user_id}/posts", response_model=PostsResponse)
 def get_user_posts(
     user_id: int,
@@ -44,6 +45,7 @@ def get_user_posts(
         totalPages=total_pages,
         posts=posts
     )
+
 
 @router.get("/api/users", response_model=UsersResponse)
 def get_all_users(
@@ -83,6 +85,7 @@ def get_all_users(
         totalPages=total_pages,
         users=users
     )
+
 
 @router.get("/api/users/{user_id}", response_model=UserResponseLight)
 def get_user(

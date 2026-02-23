@@ -8,9 +8,11 @@ class PostCreate(BaseModel):
     title: str
     content: str
 
+
 class PostUpdate(BaseModel):
     title: Optional[str] = None
     content: Optional[str] = None
+
 
 class PostResponse(BaseModel):
     post_id: int
@@ -23,6 +25,7 @@ class PostResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
 
 class PostsResponse(BaseModel):
     totalCount: int
@@ -42,14 +45,16 @@ class UserCreate(BaseModel):
     phone: Optional[str] = None
     role: str = "viewer"
 
+
 class UserUpdate(BaseModel):
-    login: Optional[str] = None  
-    email: Optional[EmailStr] = None  
-    password: Optional[str] = None 
+    login: Optional[str] = None
+    email: Optional[EmailStr] = None
+    password: Optional[str] = None
     first_name: Optional[str] = None
     last_name: Optional[str] = None
     phone: Optional[str] = None
     role: Optional[str] = None
+
 
 class UserResponse(BaseModel):
     user_id: int
@@ -64,6 +69,7 @@ class UserResponse(BaseModel):
     class Config:
         from_attributes = True
 
+
 class UserResponseLight(BaseModel):
     """Легковесный ответ пользователя без постов"""
     user_id: int
@@ -76,19 +82,21 @@ class UserResponseLight(BaseModel):
 
     class Config:
         from_attributes = True
-        
+
+
 class UsersResponse(BaseModel):
     totalCount: int
     page: int = 1
     pageSize: int = 10
     totalPages: int = 1
     users: List[UserResponse]
-    
+
 
 # ================ JWT ================
 class Token(BaseModel):
     access_token: str
     token_type: str
+
 
 class TokenData(BaseModel):
     login: str | None = None

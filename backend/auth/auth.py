@@ -18,6 +18,7 @@ ACCESS_TOKEN_TTL = int(os.getenv("ACCESS_TOKEN_TTL"))  # minutes
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
+
 # Function to create a JWT access token
 def create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:
     to_encode = data.copy()
@@ -28,6 +29,7 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None) -> s
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
+
 
 # Function to verify and decode JWT token
 async def get_current_user(

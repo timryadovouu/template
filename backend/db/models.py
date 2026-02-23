@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text, Boolean, TIMESTAMP, CheckConstraint, ForeignKey  # type: ignore
 from sqlalchemy.orm import relationship  # type: ignore
 from sqlalchemy.sql import func  # type: ignore
-from db.database import Base 
+from db.database import Base
 
 
 class User(Base):
@@ -34,7 +34,6 @@ class Post(Base):
     likes_count = Column(Integer, server_default="0")
     created_at = Column(TIMESTAMP, server_default=func.current_timestamp())
     updated_at = Column(TIMESTAMP, server_default=func.current_timestamp())
-
 
     user = relationship(
         "User",
