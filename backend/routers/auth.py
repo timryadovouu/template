@@ -4,13 +4,13 @@ from sqlalchemy.orm import Session  # type: ignore
 from typing import Annotated
 import os
 
-from backend.auth.auth import create_access_token, get_current_user
-from backend.auth.utils import get_password_hash, verify_password
-from backend.db.database import get_db
-from backend.db.models import User
-from backend.db.schemas import Token
-from backend.db.schemas import UserCreate, UserResponse
-from backend.db.schemas import PostResponse
+from auth.auth import create_access_token, get_current_user
+from auth.utils import get_password_hash, verify_password
+from db.database import get_db
+from db.models import User
+from db.schemas import Token
+from db.schemas import UserCreate, UserResponse
+from db.schemas import PostResponse
 
 
 router = APIRouter(tags=["Authentication"])

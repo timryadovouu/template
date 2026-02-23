@@ -4,10 +4,10 @@ from typing import Optional, Literal, Annotated
 from datetime import datetime
 from sqlalchemy import or_, and_  # type: ignore
 
-from backend.auth.auth import get_current_user
-from backend.db.database import get_db
-from backend.db.models import User, Post
-from backend.db.schemas import PostsResponse, PostResponse, PostCreate, PostUpdate
+from auth.auth import get_current_user
+from db.database import get_db
+from db.models import User, Post
+from db.schemas import PostsResponse, PostResponse, PostCreate, PostUpdate
 
 
 router = APIRouter(tags=["Posts"])
@@ -29,8 +29,8 @@ def get_all_posts(
     search: Optional[str] = Query(None),
     search_field: Literal["all", "title", "content"] = Query("all"),
     # sorting
-    sort_by: str = Query("created_at", regex="^(created_at|updated_at|title|likes_count)$"),
-    sort_order: str = Query("asc", regex="^(asc|desc)$"),
+    sort_by: str = Query("created_at", pattern="^(created_at|updated_at|title|likes_count)$"),
+    sort_order: str = Query("asc", pattern="^(asc|desc)$"),
     db: Session = Depends(get_db)
 ):
     query = db.query(Post)
