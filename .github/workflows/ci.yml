@@ -32,6 +32,8 @@ jobs:
         # working-directory: ./backend
 
       - name: Run tests
+        env:
+          TESTING: "true"
         run: |
           cd backend
           PYTHONPATH=$PYTHONPATH:$(pwd) poetry run pytest ../tests/
