@@ -29,5 +29,5 @@ jobs:
         working-directory: ./backend
 
       - name: Run tests
-        run: poetry run pytest
+        run: poetry run pytest ../tests
         working-directory: ./backend
