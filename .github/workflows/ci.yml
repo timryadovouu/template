@@ -25,9 +25,11 @@ jobs:
         working-directory: ./backend
 
       - name: Run flake8
-        run: poetry run flake8 .
+        run: poetry run flake8 backend tests --config=.flake8
         working-directory: ./backend
 
-      # - name: Run tests
+      - name: Run tests
+        run: |
+          pytest tests/
       #   run: PYTHONPATH=./backend poetry run pytest ../tests
       #   working-directory: ./backend

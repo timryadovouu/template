@@ -10,6 +10,7 @@ def test_health_check():
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
 
+
 def test_register_and_login():
     user_data = {"login": "user", "password": "user"}
     response = client.post("/register", json=user_data)
