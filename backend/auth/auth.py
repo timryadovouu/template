@@ -7,9 +7,9 @@ from typing import Annotated
 import jwt  # type: ignore
 import os
 
-from db.database import get_db
-from db.models import User
-from db.schemas import TokenData
+from backend.db.database import get_db
+from backend.db.models import User
+from backend.db.schemas import TokenData
 
 
 SECRET_KEY = os.getenv("SECRET_KEY")
