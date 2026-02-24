@@ -5,7 +5,17 @@ meta {
 }
 
 patch {
-  url: localhost/api/posts
-  body: none
-  auth: none
+  url: localhost/api/posts/1
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aW0iLCJleHAiOjE3NzE5NjM2NDB9.aH9Df6G254qMJWB4vh_05qrjmoANWB56IcCmdIQVYbs
+}
+
+body:json {
+  {
+    "content": "new_content"
+  }
 }

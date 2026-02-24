@@ -5,7 +5,17 @@ meta {
 }
 
 patch {
-  url: /api/users/1
-  body: none
-  auth: none
+  url: localhost/api/users/1
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aW0iLCJleHAiOjE3NzE5NjM2NDB9.aH9Df6G254qMJWB4vh_05qrjmoANWB56IcCmdIQVYbs
+}
+
+body:json {
+  {
+    "password": "2222"
+  }
 }

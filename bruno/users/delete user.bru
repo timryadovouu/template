@@ -4,8 +4,12 @@ meta {
   seq: 5
 }
 
-get {
-  url: localhost/api/users/2
+delete {
+  url: localhost/api/users/1
   body: none
-  auth: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aW0iLCJleHAiOjE3NzE5NjM2NDB9.aH9Df6G254qMJWB4vh_05qrjmoANWB56IcCmdIQVYbs
 }

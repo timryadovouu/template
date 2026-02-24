@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr  # type: ignore
+from pydantic import BaseModel, EmailStr, ConfigDict  # type: ignore
 from typing import List, Optional
 from datetime import datetime
 
@@ -23,8 +23,7 @@ class PostResponse(BaseModel):
     created_at: datetime
     updated_at: datetime
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class PostsResponse(BaseModel):
@@ -66,8 +65,7 @@ class UserResponse(BaseModel):
     role: str
     posts: List[PostResponse]
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class UserResponseLight(BaseModel):
@@ -80,8 +78,7 @@ class UserResponseLight(BaseModel):
     phone: Optional[str] = None
     role: str
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class UsersResponse(BaseModel):
